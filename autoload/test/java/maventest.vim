@@ -4,6 +4,7 @@ endif
 
 function! test#java#maventest#test_file(file) abort
   return a:file =~? g:test#java#maventest#file_pattern
+    \ && filereadable("pom.xml")
     \ && (!exists('g:test#java#runner') || g:test#java#runner ==# 'maventest')
 endfunction
 
