@@ -4,7 +4,7 @@ endif
 
 function! test#java#gradletest#test_file(file) abort
   return a:file =~? g:test#java#gradletest#file_pattern
-    \ && filereadable("build.gradle")
+    \ && filereadable(getcwd() . '/build.gradle')
     \ && exists('g:test#java#runner')
     \ && g:test#java#runner ==# 'gradletest'
 endfunction
